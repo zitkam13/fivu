@@ -17,4 +17,5 @@ class Person {
     }
 }
 exports.Person = Person;
-//# sourceMappingURL=../src/person.js.map
+
+//# sourceMappingURL=person.js.map

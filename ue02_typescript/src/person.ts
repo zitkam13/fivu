@@ -22,4 +22,14 @@ export class Person  {
      public get birthYear (): number {
          return this.birthYear;
      }
+
+     public set vorname (v: string) {
+        if (v === undefined || v === null || v === '') {
+            throw Error('invalid value');
+        }
+        this._vorname = v;
+     }
+     public toString (): string {
+         return this._nachname + ' ' + this._vorname;
+     }
 }

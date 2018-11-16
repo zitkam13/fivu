@@ -14,8 +14,10 @@ export class Server {
     private _server: express.Express;
 
     public constructor (port: number) {
+        const assetsPath = path.join(__dirname, '..', 'assets');
         this._port = port;
         this._server = express();
+        this._server.use('/', express.static(assetsPath));
         this._server.get('/liste', (req, res, next) => this.handleGetListe(req, res, next));
         this._server.get('/image.png', (req, res, next) => this.sendImage(res));
     }

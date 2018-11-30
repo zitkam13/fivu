@@ -2,7 +2,7 @@
 const path = require('path');
 
 // External modules,
-// npm install --save-dev gulp gulp-changed gulp-typescript gulp-sourcemaps gulp-using 
+// npm install --save-dev gulp gulp-changed gulp-typescript gulp-sourcemapsgulp-using 
 // npm install --save-dev typescript del run-sequence merge-stream
 const gulp       = require('gulp'),
       changed    = require('gulp-changed'),
@@ -44,6 +44,7 @@ gulp.task('clean', function (done) {
     return del(toDelete);
 });
 
+
 gulp.task('transpile', function (done) {
     const tsResult = gulp.src('src/**/*.ts', { follow: true, followSymlinks: true })
         .pipe(changed('dist', { extension: '.js' }))
@@ -55,10 +56,11 @@ gulp.task('transpile', function (done) {
                 return sourcePath.substr(0);
             })
         )
-        .pipe(sourcemaps.write('./', { sourceRoot: __dirname + '/src'}))
+        .pipe(sourcemaps.write('./', { sourceRoot: __dirname + '/src' }))
         .pipe(gulp.dest('dist'));
     return tsResult;
 });
+
 
 gulp.task('copyFiles', function (done) {
 

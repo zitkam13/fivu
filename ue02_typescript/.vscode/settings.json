@@ -1,9 +1,5 @@
 {
-   "files.exclude": {
-      "**/node_modules": true,
-      "**/dist": true,
-      "**/package-lock.json":true,
-      "**/.vscode": true
-      
-   } 
+	"files.exclude": {
+	    "**/node_modules": true,
+	}
 }

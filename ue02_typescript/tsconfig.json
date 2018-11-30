@@ -12,5 +12,5 @@
         "outDir": "./dist",
         "typeRoots": [ "node_modules/@types" ]
     },
-    "include": [ "src/**/*.ts", "gulpfile.js" ]
+    "include": [ "src/**/*.ts" ]
 }

@@ -1,18 +1,24 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TreesComponent } from './trees.component';
 import { CarsComponent } from './cars.component';
 import { ClockComponent } from './clock.component';
+import { NavbarComponent} from './navbar/navbar.component';
+import { from } from 'rxjs';
+
 
 @NgModule({
   declarations: [
     AppComponent, TreesComponent, CarsComponent,
-    ClockComponent
+    ClockComponent, NavbarComponent
   ],
   imports: [
+    NgbModule,
     BrowserModule,
     AppRoutingModule
   ],

@@ -29,24 +29,62 @@ export class CarsComponent {
   }
 
   public randomize() {
-    // Only Change 3 values
-    const data = [
-      Math.round(Math.random() * 100),
-      59,
-      80,
-      (Math.random() * 100),
-      56,
-      (Math.random() * 100),
-      40];
-    const clone = JSON.parse(JSON.stringify(this.barChartData));
-    clone[0].data = data;
-    this.barChartData = clone;
+    this.updateBars().then( (result: number []) => {
+      console.log('Daten eingetroffen');
+      const clone = JSON.parse(JSON.stringify(this.barChartData));
+      clone[0].data = result;
+      this.barChartData = clone;
+    }).catch( (err) => {
+      console.log('ERROR Fehler', err);
+    });
+  }
+  public async randomize2(): Promise<string> {
+    try {
+      const result = await this.updateBars();
+      return 'Super';
+    } catch (err) {
+      console.log('Error: Fehler!!!', err);
+      throw err;
+    }
+  }
+  private updateBars(): Promise<number []> {
+    /*if (true) {
+      Promise.reject(new Error('Fehler'));
+    }*/
+    return new Promise<number []> ( (resolve, reject) => {
+      console.log('Refresh gestratet ');
+      setTimeout ( () => {
+       // reject(new Error('Fehler aufgetreten'));
+        const data = [
+        Math.round(Math.random() * 100),
+        59,
+        80,
+        (Math.random() * 100),
+        56,
+        (Math.random() * 100),
+        40];
+        resolve(data);
+      }, 2000);
+    });
+  }
+    // // Only Change 3 values
+    // const data = [
+    //   Math.round(Math.random() * 100),
+    //   59,
+    //   80,
+    //   (Math.random() * 100),
+    //   56,
+    //   (Math.random() * 100),
+    //   40];
+    // const clone = JSON.parse(JSON.stringify(this.barChartData));
+    // clone[0].data = data;
+    // this.barChartData = clone;
     /**
      * (My guess), for Angular to recognize the change in the dataset
      * it has to change the dataset variable directly,
      * so one way around it, is to clone the data, change it and then
      * assign it;
      */
-  }
+  // }
 }
 

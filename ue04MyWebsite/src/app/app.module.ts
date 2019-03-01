@@ -8,7 +8,7 @@ import { CarsComponent } from './cars.component';
 import { ClockComponent } from './clock.component';
 import { NavbarComponent} from './navbar/navbar.component';
 import { ChartsModule } from 'ng4-charts/ng4-charts';
-import { from } from 'rxjs';
+
 
 
 @NgModule({

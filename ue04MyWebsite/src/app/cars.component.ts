@@ -47,26 +47,26 @@ export class CarsComponent {
       throw err;
     }
   }
-  private updateBars(): Promise<number []> {
-    /*if (true) {
-      Promise.reject(new Error('Fehler'));
-    }*/
-    return new Promise<number []> ( (resolve, reject) => {
-      console.log('Refresh gestratet ');
-      setTimeout ( () => {
-       // reject(new Error('Fehler aufgetreten'));
-        const data = [
-        Math.round(Math.random() * 100),
-        59,
-        80,
-        (Math.random() * 100),
-        56,
-        (Math.random() * 100),
-        40];
-        resolve(data);
-      }, 2000);
-    });
-  }
+private updateBars(): Promise<number []> {
+  /*if (true) {
+    Promise.reject(new Error('Fehler'));
+  }*/
+  return new Promise<number []> ( (resolve, reject) => {
+    console.log('Refresh gestratet ');
+    setTimeout ( () => {
+     // reject(new Error('Fehler aufgetreten'));
+      const data = [
+      Math.round(Math.random() * 100),
+      59,
+      80,
+      (Math.random() * 100),
+      56,
+      (Math.random() * 100),
+      40];
+      resolve(data);
+    }, 2000);
+  });
+}
     // // Only Change 3 values
     // const data = [
     //   Math.round(Math.random() * 100),

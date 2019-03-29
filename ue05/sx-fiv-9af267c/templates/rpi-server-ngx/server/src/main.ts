@@ -19,6 +19,7 @@ process.on('unhandledRejection', (reason, p) => {
 // ***********************************************************
 
 nconf.argv().env();
+debugger;
 const configFilename = path.join(__dirname, '../config.json');
 try {
     fs.accessSync(configFilename, fs.constants.R_OK);

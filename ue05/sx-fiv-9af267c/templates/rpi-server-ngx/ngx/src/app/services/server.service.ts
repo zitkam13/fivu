@@ -2,6 +2,7 @@ import { Injectable, isDevMode } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
+
 @Injectable()
 export class ServerService {
 
@@ -11,7 +12,7 @@ export class ServerService {
         // ng serve      --> development mode, server running on same host
         // npm run build --prod --> production mode, server can run on any host and supports loading ngx app
         // this._serverUri = isDevMode() ? 'http://localhost:8080' : '';
-        this._serverUri = isDevMode() ? 'http://pi-test:8080' : '';
+        this._serverUri = isDevMode() ? 'http://pi14:8080' : '';
     }
 
     public async httpGetJson(resource: string): Promise<Object> {

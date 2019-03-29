@@ -15,6 +15,7 @@ import * as bodyParser from 'body-parser';
 
 import { handleError, RouterError, BadRequestError, AuthenticationError, NotFoundError } from './routers/router-error';
 import { RouterData } from './routers/routers-data';
+import { User } from './server/user';
 
 interface IServerConfig {
     start: boolean;
@@ -70,7 +71,11 @@ export class Server {
         }
         this._express.use(bodyParser.json());
         this._express.use(bodyParser.urlencoded({ extended: true }) );
-
+        this._express.get('/user', (req, resp) => {
+            const user: User = {
+                name: 'Karlheinz Zitz'
+            };
+        });
         // this._express.post('/auth', (req, res, next) => Auth.Instance.handlePostAuth(req, res, next));
 
         // this._express.use('/data', RouterData.Instance);

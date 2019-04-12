@@ -5,6 +5,7 @@ const debug: debugsx.IDefaultLogger = debugsx.createDefaultLogger('server');
 import * as path from 'path';
 import * as fs from 'fs';
 import * as http from 'http';
+import * as https from 'https';
 
 import * as nconf from 'nconf';
 import * as cors from 'cors';
@@ -41,7 +42,7 @@ export class Server {
 
     private _express: express.Express;
     private _config: IServerConfig;
-    private _server: http.Server;
+    private _server: https.Server;
 
     private constructor (config?: IServerConfig) {
         config = config || nconf.get('server');
@@ -89,8 +90,8 @@ export class Server {
         this._express.use(
             (err: any, req: express.Request, res: express.Response, next: express.NextFunction) => this.errorHandler(err, req, res, next)
         );
-
-        const server = http.createServer(this._express).listen(this._config.port, () => {
+        const credentials = {key: '/home/pi/rpi-server-ngx/certificate/id_rsa_pi14', cert: '/home/pi/rpi-server-ngx/certificate/crt.crt'};
+        const server = https.createServer(credentials, this._express).listen(this._config.port, () => {
             debug.info('Server gestartet: http://localhost:%s', this._config.port);
         });
         server.on('connection', socket => {
